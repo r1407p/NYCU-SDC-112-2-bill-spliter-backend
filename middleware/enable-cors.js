@@ -2,7 +2,7 @@
 // https://www.shubo.io/what-is-cors/
 
 
-const enableCors = (req, res, next) => {
+const EnableCors = (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // server accept request from any origin
     res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS'); // server accept request with these methods
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // server accept request with these headers
@@ -22,4 +22,4 @@ const enableCors = (req, res, next) => {
     }
     next();
 }
-export default enableCors;
+export default EnableCors;
