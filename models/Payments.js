@@ -9,12 +9,12 @@ const PaymentSchema = new mongoose.Schema({
         required: true
     },
     paidBy: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
     sharedBy: {
-        type: [Schema.Types.ObjectId],
+        type: [mongoose.Schema.Types.ObjectId],
         ref: 'User',
         required: true
     }

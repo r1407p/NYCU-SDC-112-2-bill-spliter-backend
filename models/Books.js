@@ -1,15 +1,12 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose';
 
-
-
-const bookSchema = new Schema({
+const BookSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
     creator: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
@@ -17,14 +14,14 @@ const bookSchema = new Schema({
         type: String
     },
     membersList: {
-        type: [Schema.Types.ObjectId],
+        type: [mongoose.Schema.Types.ObjectId],
         ref: 'User',
         required: true
     },
     paymentsList: {
-        type: [paymentSchema],
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Payment',
         required: true
     }
 });
-
-module.exports = mongoose.model("Book", bookSchema);
+export default mongoose.model("Book", BookSchema);
