@@ -1,4 +1,4 @@
-FROM node:20.11.1
+FROM node:18.4
 
 # 设置工作目录
 RUN mkdir /app
