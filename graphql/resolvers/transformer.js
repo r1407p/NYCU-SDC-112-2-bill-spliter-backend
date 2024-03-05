@@ -1,5 +1,4 @@
-import modules from '../../models/index.js';
-const { Books, Users, Payments } = modules;
+import models from '../../models/index.js';
 import dateToString from  '../../helpers/date.js';
 
 const transformBook = book => {
@@ -37,7 +36,7 @@ const transformPayment = payment => {
 
 const getSingleTransformedBook = async bookID => {
     try {
-        const book = await Books.findById(bookID);
+        const book = await models.Books.findById(bookID);
         return transformBook(book);
     } catch (err) {
         throw err;
@@ -46,7 +45,7 @@ const getSingleTransformedBook = async bookID => {
 
 const getListTransformedBooks = async bookIDs => {
     try {
-        const books = await Books.find({ _id: { $in: bookIDs } });
+        const books = await models.Books.find({ _id: { $in: bookIDs } });
         return books.map(book => {
             return transformBook(book);
         });
@@ -58,7 +57,7 @@ const getListTransformedBooks = async bookIDs => {
 
 const getSingleTransformedUser = async userID => {
     try {
-        const user = await Users.findById(userID);
+        const user = await models.Users.findById(userID);
         return transformUser(user);
     } catch (err) {
         throw err;
@@ -67,7 +66,7 @@ const getSingleTransformedUser = async userID => {
 
 const getListTransformedUser = async userIDs => {
     try {
-        const users = await Users.find({ _id: { $in: userIDs } });
+        const users = await models.Users.find({ _id: { $in: userIDs } });
         return users.map(user => {
             return transformUser(user);
         });
